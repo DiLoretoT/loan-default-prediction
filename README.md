@@ -22,7 +22,7 @@ An AUC of 0.72 is at the top of the published range (0.69-0.73) for setups witho
 
 The raw dataset has 151 columns, but most of them describe what happened **after** the loan was granted: payments, recoveries, updated FICO scores, hardship programs. Training with those columns means training with the answer.
 
-Every feature had to pass one test: *did the lender know this on approval day?* That left 28 columns covering the loan terms, the applicant profile and their credit history. After removing redundant and high-cardinality fields, 24 predictors remained. Each exclusion was measured, not assumed. For example, the US state separates default rates by about 10 points between large states, not enough to justify adding 50 dummy variables.
+Every feature had to pass one test: *did the lender know this on approval day?* That left 28 columns covering the loan terms, the applicant profile and their credit history. After removing redundant and high-cardinality fields, 24 predictors remained. Each exclusion was measured, not assumed. For example, the US state separates default rates by about 10 points between large states, a real signal worth having; including it properly means learning any state grouping from the training set only (to avoid leakage), which needed more time than this project had, so it was left as a documented improvement.
 
 Two details worth noting:
 
